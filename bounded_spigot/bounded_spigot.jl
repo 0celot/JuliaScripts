@@ -3,7 +3,7 @@
 
 # This is an implementation of the Rabinowitz and Wagon spigot algorithm for
 # calculating digits of pi as described in http://www.mathpropress.com/stan/bibliography/spigot.pdf
-
+# use: julia bounded_spigot.jl [integer number of digits]
 
 # Calculate a single digit of pi. All arguments are passed by reference.
 function calc_digit(steps, augend, carry, sumarr, remainder)
@@ -25,7 +25,6 @@ end
 
 
 
-
 # number of pi digits to calculate
 n = int(ARGS[1])
 
@@ -34,7 +33,7 @@ n = int(ARGS[1])
 m = convert(Int64, ceil( 3.32 * n)) - 1
 
 # initial array values
-steps = [max(1,i)//(2*i+1) for i = 0:m]
+steps = [max(1,i)//(2*i+1) for i = 0:m] # julia has a rational number type defined by '//'
 init = [2 for i=0:m]
 x10 = init.*10
 carry = [0 for i=0:m]
