@@ -23,8 +23,11 @@ function calc_digit(steps, augend, carry, sumarr, remainder)
     return div(sumarr[1], 10)
 end 
 
+
+
+
 # number of pi digits to calculate
-n = 100 
+n = int(ARGS[1])
 
 # estimated number of steps based formula given at 
 # http://www.pi314.net/eng/goutte.php 
